@@ -43,7 +43,7 @@ export function Navbar() {
 
     try {
       if (token) {
-        await fetch("http://localhost:8080/api/v1/auth/logout", {
+        await fetch("http://15.207.107.248:8080/api/v1/auth/logout", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,

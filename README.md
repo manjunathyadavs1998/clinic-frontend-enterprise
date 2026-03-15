@@ -11,18 +11,18 @@ Beautiful hospital frontend built with:
 
 ## Current implementation (end-to-end)
 
-This repo is wired up to communicate with a backend API at `http://localhost:8080/api/v1` for authentication and core data operations.
+This repo is wired up to communicate with a backend API at `http://15.207.107.248:8080/api/v1` for authentication and core data operations.
 
 ### 🔐 Auth flow (login + logout)
 
 - **Login page:** `app/login/page.tsx`
-  - POSTs to `http://localhost:8080/api/v1/auth/login` with `{ username, password }`
+  - POSTs to `http://15.207.107.248:8080/api/v1/auth/login` with `{ username, password }`
   - Stores response in `localStorage`:
     - `accessToken`, `refreshToken`, `username`, `roles`
   - Redirects to **`/consultations`** on success
 
 - **Logout:**
-  - Uses `components/navbar.tsx` to POST to `http://localhost:8080/api/v1/auth/logout` with `Authorization: Bearer <token>`
+  - Uses `components/navbar.tsx` to POST to `http://15.207.107.248:8080/api/v1/auth/logout` with `Authorization: Bearer <token>`
   - Clears stored auth + cached data
   - Redirects to `/login`
 
@@ -33,7 +33,7 @@ Route-based guards are enforced in client pages (e.g. `dashboard`, `doctors`, `c
 ### 🩺 Dynamic doctor data
 
 - `lib/hooks/useAvailableDoctors.ts` fetches:
-  - `GET http://localhost:8080/api/v1/doctors/available`
+  - `GET http://15.207.107.248:8080/api/v1/doctors/available`
   - Includes `Authorization: Bearer <accessToken>`
   - Caches the response in `localStorage.availableDoctors`
 
@@ -44,8 +44,8 @@ Route-based guards are enforced in client pages (e.g. `dashboard`, `doctors`, `c
 ### 🧾 Consultations CRUD
 
 - `app/consultations/page.tsx`:
-  - Loads appointment records via `GET http://localhost:8080/api/v1/consultations`
-  - Creates a new consultation via `POST http://localhost:8080/api/v1/consultations` using `accessToken` in Authorization header
+  - Loads appointment records via `GET http://15.207.107.248:8080/api/v1/consultations`
+  - Creates a new consultation via `POST http://15.207.107.248:8080/api/v1/consultations` using `accessToken` in Authorization header
   - Stores the selected doctor ID in `localStorage.selectedDoctorId` so the dropdown can remember the choice
   - Clears success message after 1s
   - Resets the doctor dropdown after a record is created

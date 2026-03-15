@@ -47,7 +47,7 @@ export default function ConsultationsPage() {
     setRecordsError(null);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/consultations", {
+      const res = await fetch("http://15.207.107.248:8080/api/v1/consultations", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -93,7 +93,7 @@ export default function ConsultationsPage() {
     };
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/consultations", {
+      const res = await fetch("http://15.207.107.248:8080/api/v1/consultations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

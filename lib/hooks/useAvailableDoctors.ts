@@ -29,7 +29,7 @@ export function useAvailableDoctors() {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/doctors/available", {
+      const res = await fetch("http://15.207.107.248:8080/api/v1/doctors/available", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

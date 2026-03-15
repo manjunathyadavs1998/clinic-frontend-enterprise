@@ -32,7 +32,7 @@ export default function DoctorsPage() {
       setError(null);
 
       try {
-        const res = await fetch("http://localhost:8080/api/v1/doctors", {
+        const res = await fetch("http://15.207.107.248:8080/api/v1/doctors", {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
